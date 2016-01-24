@@ -1,0 +1,10 @@
+{
+  "name": "signup-es6",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
