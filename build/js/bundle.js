@@ -3984,5 +3984,5 @@ var postUrl='https://forms.foxfilm.com/sqs/signup_handler.php';if(!data.ri_url){
    */if($.validator){$.validator.addMethod('firstNameRegEx',function(value,element){return this.optional(element)||!/\=|\#|\$|\[|\]|\{|\}|\\|\*|\"|<|>|\^|\_|\||%/i.test(value);});} /**
    * Extend our validation for last name.
    * @return boolean
-   */if($.validator){$.validator.addMethod('lastNameRegEx',function(value,element){return this.optional(element)||!/\=|\#|\$|\[|\]|\{|\}|\\|\*|\"|<|>|\^|\_|\||%/i.test(value);});}});window.FoxSignup=FoxSignup;window.FoxSignupHandler=signupHandler;},{}]},{},["/Volumes/inertialbox/hack/inertialbox-signup-es6/src/js/main","/Volumes/inertialbox/hack/inertialbox-signup-es6/src/js/signup"]);
+   */if($.validator){$.validator.addMethod('lastNameRegEx',function(value,element){return this.optional(element)||!/\=|\#|\$|\[|\]|\{|\}|\\|\*|\"|<|>|\^|\_|\||%/i.test(value);});}});window.FoxSignup=FoxSignup;},{}]},{},["/Volumes/inertialbox/hack/inertialbox-signup-es6/src/js/main","/Volumes/inertialbox/hack/inertialbox-signup-es6/src/js/signup"]);
 //# sourceMappingURL=bundle.js.map

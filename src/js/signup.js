@@ -232,4 +232,3 @@ $(function() {
 });
 
 window.FoxSignup = FoxSignup;
-window.FoxSignupHandler = signupHandler;
