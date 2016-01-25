@@ -3955,7 +3955,7 @@ signupHandler.foxSignup.sendTracking(response);signupHandler.foxSignup.ajaxCallb
    * Callback to send form data to the collector, assign to form 'onsubmit' or validate() 'submitHandler'. Disables form buttons and updates signupHandler allowing UI response targeting.
    * @param {object} arg - Either an event - when used as 'onsubmit' handler on a form - or a form node - when used as 'submitHandler' in jQuery.validate().
    * @return {boolean} false.
-   */},{key:"ajaxSubmitHandler",value:function ajaxSubmitHandler(arg){var form=undefined;if(_typeof(arg.target)=='object'&&typeof arg.preventDefault=='function'){ // we're used as onsubmit function
+   */},{key:"ajaxSubmitHandler",value:function ajaxSubmitHandler(arg){var form=undefined;if(_typeof(arg.target)=='object'&&typeof arg.preventDefault=='function'){ // when used as onsubmit function
 arg.preventDefault();form=$(arg.target);}else { // when used as validate() submitHandler
 form=$(arg);}var data=this.prepareSignupForm(form);if(!data){return false;}console.log('ajaxSignup()');this.ajaxSignup(this.form.attr('action'),data,'formsignup');} /**
    * Check for multiple submits, disable buttons, check dev defaults, update signupHandler and collect form data.
@@ -3976,13 +3976,13 @@ signupHandler.foxSignup=this;return formData;}},{key:"disable",value:function di
    * @return {boolean} false.
    */},{key:"ajaxSignup",value:function ajaxSignup(url,data,signupType){this.form.prepend('<div class="sign-up-loader"></div>');this.trackEvent=signupType; // We are now putting all signups on a aws sqs and we do our branching
 // logic on the server end.
-var postUrl='https://forms.foxfilm.com/sqs/signup_handler.php';if(!data.ri_url){data.ri_url=url;}else {postUrl=url;}$.ajax({type:'POST',url:postUrl,data:data,crossDomain:true,success:function success(response){signupHandler(response);}});return false;}}]);return FoxSignup;}(); /**
+var postUrl='https://forms.inertialbox.com/sqs/signup-handler';if(!data.ri_url){data.ri_url=url;}else {postUrl=url;}$.ajax({type:'POST',url:postUrl,data:data,crossDomain:true,success:function success(response){signupHandler(response);}});return false;}}]);return FoxSignup;}(); /**
  * On $(document).ready()
  */$(function(){ /**
    * Extend our validation for first name.
    * @return boolean
-   */if($.validator){$.validator.addMethod('firstNameRegEx',function(value,element){return this.optional(element)||!/\=|\#|\$|\[|\]|\{|\}|\\|\*|\"|<|>|\^|\_|\||%/i.test(value);});} /**
+   */if($.validator){$.validator.addMethod('firstNameRegEx',function(value,element){return this.optional(element)||!/[^A-Za-z\-\ ]/.test(value);});} /**
    * Extend our validation for last name.
    * @return boolean
-   */if($.validator){$.validator.addMethod('lastNameRegEx',function(value,element){return this.optional(element)||!/\=|\#|\$|\[|\]|\{|\}|\\|\*|\"|<|>|\^|\_|\||%/i.test(value);});}});window.FoxSignup=FoxSignup;},{}]},{},["/Volumes/inertialbox/hack/inertialbox-signup-es6/src/js/main","/Volumes/inertialbox/hack/inertialbox-signup-es6/src/js/signup"]);
+   */if($.validator){$.validator.addMethod('lastNameRegEx',function(value,element){return this.optional(element)||!/[^A-Za-z\-\ ]/.test(value);});}});window.FoxSignup=FoxSignup;},{}]},{},["/Volumes/inertialbox/hack/inertialbox-signup-es6/src/js/main","/Volumes/inertialbox/hack/inertialbox-signup-es6/src/js/signup"]);
 //# sourceMappingURL=bundle.js.map

@@ -83,7 +83,7 @@ class FoxSignup {
   ajaxSubmitHandler(arg) {
     let form;
 
-    if (typeof arg.target == 'object' && typeof arg.preventDefault == 'function') { // we're used as onsubmit function
+    if (typeof arg.target == 'object' && typeof arg.preventDefault == 'function') { // when used as onsubmit function
       arg.preventDefault();
       form = $(arg.target);
     } else { // when used as validate() submitHandler
@@ -182,7 +182,7 @@ class FoxSignup {
     // We are now putting all signups on a aws sqs and we do our branching
     // logic on the server end.
 
-    var postUrl =  'https://forms.foxfilm.com/sqs/signup_handler.php';
+    var postUrl = 'https://forms.inertialbox.com/sqs/signup-handler';
 
     if (!data.ri_url) {
       data.ri_url = url;
@@ -215,7 +215,7 @@ $(function() {
   if ($.validator) {
     $.validator.addMethod(
       'firstNameRegEx', function(value, element) {
-      return this.optional(element) || !(/\=|\#|\$|\[|\]|\{|\}|\\|\*|\"|<|>|\^|\_|\||%/i.test(value));
+      return this.optional(element) || !(/[^A-Za-z\-\ ]/.test(value));
     });
   }
 
@@ -226,7 +226,7 @@ $(function() {
   if ($.validator) {
     $.validator.addMethod(
       'lastNameRegEx', function(value, element) {
-      return this.optional(element) || !(/\=|\#|\$|\[|\]|\{|\}|\\|\*|\"|<|>|\^|\_|\||%/i.test(value));
+      return this.optional(element) || !(/[^A-Za-z\-\ ]/.test(value));
     });
   }
 });
